@@ -225,8 +225,8 @@ body {
 }
 
 .hero-logo {
-  width: 180px;
-  height: 180px;
+  width: 220px;
+  height: 220px;
   object-fit: contain;
   filter: drop-shadow(0 10px 40px rgba(0, 0, 0, 0.3));
   transition: all 0.3s ease;
@@ -240,8 +240,8 @@ body {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 200px;
-  height: 200px;
+  width: 250px;
+  height: 250px;
   background: radial-gradient(circle, rgba(126, 200, 227, 0.4), transparent);
   transform: translate(-50%, -50%);
   animation: pulse 2s ease-in-out infinite;
@@ -254,7 +254,7 @@ body {
 
 .hero-title {
   font-family: 'Playfair Display', serif;
-  font-size: clamp(3rem, 8vw, 7rem);
+  font-size: clamp(2.5rem, 7vw, 6rem);
   font-weight: 700;
   margin: 0;
   background: linear-gradient(45deg, #fff, #7ec8e3, #f8b195);
@@ -272,7 +272,7 @@ body {
 }
 
 .hero-subtitle {
-  font-size: clamp(1.2rem, 3vw, 2rem);
+  font-size: clamp(1rem, 2.5vw, 1.6rem);
   font-weight: 300;
   letter-spacing: 3px;
   opacity: 0.95;
@@ -392,7 +392,7 @@ section {
   margin-bottom: 3rem;
   color: var(--primary);
   position: relative;
-  display: inline-block;
+  display: block;
 }
 
 .section-title::after {
@@ -992,19 +992,16 @@ section {
   }
 
   .hero-logo {
-    width: 120px;
-    height: 120px;
+    width: 150px;
+    height: 150px;
+  }
+
+  .logo-glow {
+    width: 180px;
+    height: 180px;
   }
 
   .productos-grid,
   .sabores-grid,
   .precios-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .contacto-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .menu-tabs {
-    flex-direction
+    grid-template-
