@@ -174,7 +174,7 @@ body {
 
 /* === HERO === */
 .hero {
-  height: 100vh;
+  height: 110vh;
   position: relative;
   display: flex;
   align-items: center;
@@ -331,7 +331,7 @@ body {
   align-items: center;
   gap: 10px;
   animation: bounce 2s infinite;
-  z-index: 5;
+  z-index: 999;
 }
 
 .scroll-indicator::before {
@@ -397,7 +397,7 @@ section {
   left: 0;
   width: 80px;
   height: 4px;
-  background: linear-gradient(90deg, var(--accent), var(--secondary));
+  background: var(--accent);
   border-radius: 2px;
 }
 
@@ -1006,7 +1006,7 @@ section {
   }
 
   .scroll-indicator {
-    bottom: 80px;
+    bottom: 30px;
   }
 
   .productos-grid,
@@ -1015,7 +1015,7 @@ section {
     grid-template-columns: 1fr;
   }
 
-  .contacto-grid {
+  .c.contacto-grid {
     grid-template-columns: 1fr;
   }
 
