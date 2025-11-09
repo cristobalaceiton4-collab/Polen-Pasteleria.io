@@ -94,7 +94,7 @@ body {
 .logo {
   font-family: 'Playfair Display', serif;
   font-size: 1.8rem;
-  font-weight: 700;
+  font-weight: 500px;
   color: var(--primary);
   position: relative;
   cursor: pointer;
