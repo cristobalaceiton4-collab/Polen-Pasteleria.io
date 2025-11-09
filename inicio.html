@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Polen Pastelería</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Navegación -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="logo">Polen</div>
+      <ul class="nav-menu">
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#productos">Productos</a></li>
+        <li><a href="#menu">Menú</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+      <button class="nav-toggle" id="nav-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero" id="inicio">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1 class="hero-title">Polen Pastelería</h1>
+      <p class="hero-subtitle">Donde cada momento se endulza</p>
+      <a href="#menu" class="btn-primary">Ver Menú</a>
+    </div>
+    <div class="scroll-indicator">
+      <span></span>
+    </div>
+  </section>
+
+  <!-- Sección de bienvenida -->
+  <section class="welcome">
+    <div class="container">
+      <div class="welcome-content fade-in">
+        <span class="section-label">Bienvenidos</span>
+        <h2>Repostería artesanal con alma</h2>
+        <p>Cada creación es elaborada con ingredientes premium y dedicación. Nuestras tortas son más que postres, son experiencias memorables para tus celebraciones especiales.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Catálogo de productos -->
+  <section class="productos" id="productos">
+    <div class="container">
+      <span class="section-label">Nuestras Creaciones</span>
+      <h2 class="section-title">Catálogo de Productos</h2>
+      
+      <div class="productos-grid">
+        <div class="producto-card">
+          <div class="producto-image">
+            <img src="images/chocolate naranja.webp" alt="Chocolate Naranja">
+            <div class="producto-overlay">
+              <button class="btn-secondary">Ver Detalles</button>
+            </div>
+          </div>
+          <div class="producto-info">
+            <h3>Chocolate Naranja</h3>
+            <p>Delicioso bizcocho con ganache de chocolate y naranja</p>
+          </div>
+        </div>
+
+        <div class="producto-card">
+          <div class="producto-image">
+            <img src="images/chocolate.webp" alt="Chocolate">
+            <div class="producto-overlay">
+              <button class="btn-secondary">Ver Detalles</button>
+            </div>
+          </div>
+          <div class="producto-info">
+            <h3>Chocolate Clásico</h3>
+            <p>Torta clásica de chocolate con relleno de ganache cremoso</p>
+          </div>
+        </div>
+
+        <div class="producto-card">
+          <div class="producto-image">
+            <img src="images/frambuesa.webp" alt="Frambuesa">
+            <div class="producto-overlay">
+              <button class="btn-secondary">Ver Detalles</button>
+            </div>
+          </div>
+          <div class="producto-info">
+            <h3>Frambuesa</h3>
+            <p>Bizcocho esponjoso con crema de frambuesa fresca</p>
+          </div>
+        </div>
+
+        <div class="producto-card">
+          <div class="producto-image">
+            <img src="images/pie de limon.webp" alt="Pie de Limón">
+            <div class="producto-overlay">
+              <button class="btn-secondary">Ver Detalles</button>
+            </div>
+          </div>
+          <div class="producto-info">
+            <h3>Pie de Limón</h3>
+            <p>Base crocante con relleno ácido-dulce de limón y merengue</p>
+          </div>
+        </div>
+
+        <div class="producto-card">
+          <div class="producto-image">
+            <img src="images/mousse de chandel.webp" alt="Mousse de Chandel">
+            <div class="producto-overlay">
+              <button class="btn-secondary">Ver Detalles</button>
+            </div>
+          </div>
+          <div class="producto-info">
+            <h3>Mousse de Chandel</h3>
+            <p>Suave mousse de chocolate blanco con toque de licor</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Menú de sabores y precios -->
+  <section class="menu-section" id="menu">
+    <div class="container">
+      <span class="section-label">Nuestro Menú</span>
+      <h2 class="section-title">Sabores y Precios</h2>
+      
+      <div class="menu-tabs">
+        <button class="tab-btn active" data-tab="sabores">Sabores</button>
+        <button class="tab-btn" data-tab="precios">Precios</button>
+      </div>
+
+      <div class="menu-content">
+        <!-- Sabores -->
+        <div class="tab-panel active" id="sabores">
+          <div class="sabores-grid">
+            <div class="sabor-item">
+              <span class="sabor-number">01</span>
+              <h4>Panqueque Naranja</h4>
+            </div>
+            <div class="sabor-item">
+              <span class="sabor-number">02</span>
+              <h4>Ganache de Chocolate</h4>
+            </div>
+            <div class="sabor-item">
+              <span class="sabor-number">03</span>
+              <h4>Hojarasca Manjar</h4>
+            </div>
+            <div class="sabor-item">
+              <span class="sabor-number">04</span>
+              <h4>Mixta (Vainilla y Chocolate)</h4>
+            </div>
+            <div class="sabor-item">
+              <span class="sabor-number">05</span>
+              <h4>Torta Amor</h4>
+            </div>
+            <div class="sabor-item">
+              <span class="sabor-number">06</span>
+              <h4>Chocolate Frambuesa</h4>
+            </div>
+            <div class="sabor-item">
+              <span class="sabor-number">07</span>
+              <h4>Moka Nuez Manjar</h4>
+            </div>
+            <div class="sabor-item">
+              <span class="sabor-number">08</span>
+              <h4>Tres Leches</h4>
+            </div>
+            <div class="sabor-item">
+              <span class="sabor-number">09</span>
+              <h4>Chocolate Naranja</h4>
+            </div>
+            <div class="sabor-item">
+              <span class="sabor-number">10</span>
+              <h4>Torta Polen</h4>
+            </div>
+            <div class="sabor-item">
+              <span class="sabor-number">11</span>
+              <h4>Torta Banana Split</h4>
+            </div>
+          </div>
+        </div>
+
+        <!-- Precios -->
+        <div class="tab-panel" id="precios">
+          <div class="precios-grid">
+            <div class="precio-card">
+              <div class="precio-header">
+                <span class="precio-personas">10 personas</span>
+              </div>
+              <div class="precio-amount">$14.990</div>
+            </div>
+            <div class="precio-card">
+              <div class="precio-header">
+                <span class="precio-personas">15 personas</span>
+              </div>
+              <div class="precio-amount">$24.990</div>
+            </div>
+            <div class="precio-card">
+              <div class="precio-header">
+                <span class="precio-personas">20 personas</span>
+              </div>
+              <div class="precio-amount">$34.990</div>
+            </div>
+            <div class="precio-card">
+              <div class="precio-header">
+                <span class="precio-personas">30 personas</span>
+              </div>
+              <div class="precio-amount">$44.990</div>
+            </div>
+            <div class="precio-card especial">
+              <div class="precio-header">
+                <span class="precio-personas">Panqueque Naranja</span>
+                <span class="precio-sub">15 personas</span>
+              </div>
+              <div class="precio-amount">$23.990</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contacto -->
+  <section class="contacto" id="contacto">
+    <div class="container">
+      <div class="contacto-grid">
+        <div class="contacto-info">
+          <span class="section-label">Contáctanos</span>
+          <h2>Visítanos</h2>
+          <p class="contacto-desc">Estamos listos para hacer realidad tus celebraciones más dulces</p>
+          
+          <div class="info-blocks">
+            <div class="info-block">
+              <div class="info-icon">📍</div>
+              <div>
+                <h4>Ubicación</h4>
+                <p>Claro Solar 345<br>Temuco, Chile</p>
+              </div>
+            </div>
+            
+            <div class="info-block">
+              <div class="info-icon">🕐</div>
+              <div>
+                <h4>Horarios</h4>
+                <p>Lunes a Viernes: 9:00 - 20:00<br>
+                Sábados: 10:00 - 18:00<br>
+                Domingos: Cerrado</p>
+              </div>
+            </div>
+            
+            <div class="info-block">
+              <div class="info-icon">📞</div>
+              <div>
+                <h4>Contacto</h4>
+                <p>Tel: +56 9 1234 5678<br>
+                Email: polenpasteleria@gmail.com</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="contacto-form">
+          <form id="contact-form">
+            <div class="form-group">
+              <input type="text" placeholder="Nombre" required>
+            </div>
+            <div class="form-group">
+              <input type="email" placeholder="Email" required>
+            </div>
+            <div class="form-group">
+              <input type="tel" placeholder="Teléfono" required>
+            </div>
+            <div class="form-group">
+              <textarea placeholder="Mensaje" rows="4" required></textarea>
+            </div>
+            <button type="submit" class="btn-primary">Enviar Mensaje</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <h3>Polen</h3>
+          <p>Pastelería artesanal</p>
+        </div>
+        <div class="footer-social">
+          <a href="#" target="_blank">Instagram</a>
+          <a href="#" target="_blank">Facebook</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>Horarios: Lun-Vie 9:00-20:00 | Sáb 09:00-15:00 | &copy; 2025 Polen Pastelería. Todos los derechos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
