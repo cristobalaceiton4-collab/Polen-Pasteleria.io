@@ -9,6 +9,19 @@
 </head>
 <body>
 
+  <!-- Partículas flotantes de fondo -->
+  <div class="floating-particles">
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+  </div>
+
   <!-- Navegación -->
   <nav class="navbar">
     <div class="nav-container">
@@ -29,22 +42,24 @@
 
   <!-- Hero Section -->
   <section class="hero" id="inicio">
+    <div class="hero-bg"></div>
     <div class="hero-overlay"></div>
     <div class="hero-content">
-      <img src="imagen-logo.webp" alt="Polen Logo" class="hero-logo">
+      <div class="hero-logo-container">
+        <div class="logo-glow"></div>
+        <img src="imagen-logo.webp" alt="Polen Logo" class="hero-logo">
+      </div>
       <h1 class="hero-title">Polen Pastelería</h1>
       <p class="hero-subtitle">Donde cada momento se endulza</p>
-      <a href="#menu" class="btn-primary">Ver Menú</a>
+      <a href="#menu" class="hero-btn">Ver Menú</a>
     </div>
-    <div class="scroll-indicator">
-      <span></span>
-    </div>
+    <div class="scroll-indicator"></div>
   </section>
 
   <!-- Sección de bienvenida -->
   <section class="welcome">
     <div class="container">
-      <div class="welcome-content fade-in">
+      <div class="welcome-content">
         <span class="section-label">Bienvenidos</span>
         <h2>Repostería artesanal con alma</h2>
         <p>Cada creación es elaborada con ingredientes premium y dedicación. Nuestras tortas son más que postres, son experiencias memorables para tus celebraciones especiales.</p>
@@ -311,4 +326,4 @@
   <script src="script.js"></script>
 
 </body>
-</html> 
+</html>
