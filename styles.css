@@ -129,7 +129,7 @@ img {
 .hero {
   height: 100vh;
   background: linear-gradient(rgba(44, 95, 124, 0.3), rgba(95, 168, 211, 0.4)), 
-              url('images/VITRINA 2.png') center/cover no-repeat;
+              url('VITRINA 2.png') center/cover no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -568,26 +568,6 @@ section {
 .info-block p {
   color: var(--text-light);
   line-height: 1.8;
-}
-
-/* Link del mapa de Google */
-.map-link {
-  display: inline-block;
-  margin-top: 0.8rem;
-  color: var(--secondary-color);
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 0.95rem;
-  transition: var(--transition);
-  padding: 0.5rem 1rem;
-  border: 2px solid var(--accent-color);
-  border-radius: 25px;
-}
-
-.map-link:hover {
-  background: var(--accent-color);
-  color: var(--white);
-  transform: translateX(3px);
 }
 
 /* Formulario */
