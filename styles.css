@@ -174,7 +174,7 @@ body {
 
 /* === HERO === */
 .hero {
-  height: 110vh;
+  height: 100vh;
   position: relative;
   display: flex;
   align-items: center;
@@ -320,36 +320,9 @@ body {
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* Scroll indicator */
+/* Scroll indicator - OCULTO */
 .scroll-indicator {
-  position: absolute;
-  bottom: 50px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-  animation: bounce 2s infinite;
-  z-index: 999;
-}
-
-.scroll-indicator::before {
-  content: '';
-  width: 2px;
-  height: 40px;
-  background: linear-gradient(to bottom, transparent, var(--white));
-}
-
-.scroll-indicator::after {
-  content: '↓';
-  color: var(--white);
-  font-size: 1.5rem;
-}
-
-@keyframes bounce {
-  0%, 100% { transform: translateX(-50%) translateY(0); }
-  50% { transform: translateX(-50%) translateY(-15px); }
+  display: none;
 }
 
 /* === SECCIONES === */
@@ -373,12 +346,6 @@ section {
   text-transform: uppercase;
   margin-bottom: 1rem;
   font-weight: 600;
-  position: relative;
-  padding-left: 0;
-}
-
-.section-label::before {
-  display: none;
 }
 
 .section-title {
@@ -386,19 +353,6 @@ section {
   font-size: clamp(2.5rem, 5vw, 4.5rem);
   margin-bottom: 3rem;
   color: var(--primary);
-  position: relative;
-  display: block;
-}
-
-.section-title::after {
-  content: '';
-  position: absolute;
-  bottom: -15px;
-  left: 0;
-  width: 80px;
-  height: 4px;
-  background: var(--accent);
-  border-radius: 2px;
 }
 
 /* === WELCOME === */
@@ -1005,17 +959,13 @@ section {
     height: 220px;
   }
 
-  .scroll-indicator {
-    bottom: 30px;
-  }
-
   .productos-grid,
   .sabores-grid,
   .precios-grid {
     grid-template-columns: 1fr;
   }
 
-  .c.contacto-grid {
+  .contacto-grid {
     grid-template-columns: 1fr;
   }
 
