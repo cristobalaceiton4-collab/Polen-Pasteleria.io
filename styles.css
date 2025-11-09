@@ -95,6 +95,7 @@ body {
   font-family: 'Playfair Display', serif;
   font-size: 1.8rem;
   font-weight: 700px;
+  width: 300px;
   color: var(--primary);
   position: relative;
   cursor: pointer;
