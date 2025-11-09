@@ -94,8 +94,7 @@ body {
 .logo {
   font-family: 'Playfair Display', serif;
   font-size: 1.8rem;
-  font-weight: 700px;
-  width: 300px;
+  font-weight: 700;
   color: var(--primary);
   position: relative;
   cursor: pointer;
@@ -212,7 +211,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2rem;
+  gap: 1.5rem;
 }
 
 .hero-logo-container {
@@ -226,8 +225,8 @@ body {
 }
 
 .hero-logo {
-  width: 220px;
-  height: 220px;
+  width: 300px;
+  height: 300px;
   object-fit: contain;
   filter: drop-shadow(0 10px 40px rgba(0, 0, 0, 0.3));
   transition: all 0.3s ease;
@@ -241,8 +240,8 @@ body {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 250px;
-  height: 250px;
+  width: 350px;
+  height: 350px;
   background: radial-gradient(circle, rgba(126, 200, 227, 0.4), transparent);
   transform: translate(-50%, -50%);
   animation: pulse 2s ease-in-out infinite;
@@ -255,7 +254,7 @@ body {
 
 .hero-title {
   font-family: 'Playfair Display', serif;
-  font-size: clamp(2.5rem, 7vw, 6rem);
+  font-size: clamp(2rem, 6vw, 5rem);
   font-weight: 700;
   margin: 0;
   background: linear-gradient(45deg, #fff, #7ec8e3, #f8b195);
@@ -273,7 +272,7 @@ body {
 }
 
 .hero-subtitle {
-  font-size: clamp(1rem, 2.5vw, 1.6rem);
+  font-size: clamp(0.9rem, 2vw, 1.4rem);
   font-weight: 300;
   letter-spacing: 3px;
   opacity: 0.95;
@@ -281,8 +280,8 @@ body {
 }
 
 .hero-btn {
-  margin-top: 1rem;
-  padding: 1.2rem 3.5rem;
+  margin-top: 0.5rem;
+  padding: 1rem 3rem;
   background: var(--white);
   color: var(--primary);
   text-decoration: none;
@@ -993,16 +992,16 @@ section {
   }
 
   .hero-logo {
-    width: 150px;
-    height: 150px;
+    width: 180px;
+    height: 180px;
   }
 
   .logo-glow {
-    width: 180px;
-    height: 180px;
+    width: 220px;
+    height: 220px;
   }
 
   .productos-grid,
   .sabores-grid,
   .precios-grid {
-    grid-template-
+    grid-template-columns: 1fr;}
