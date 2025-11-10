@@ -995,3 +995,100 @@ section {
     text-align: center;
   }
 }
+
+/* === ESTILOS ADICIONALES PARA CATÁLOGO DINÁMICO === */
+
+.categoria-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin: 2rem 0 3rem 0;
+  flex-wrap: wrap;
+}
+
+.categoria-tab {
+  padding: 0.875rem 2rem;
+  background: transparent;
+  border: 2px solid var(--secondary);
+  color: var(--dark);
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  font-family: 'Lato', sans-serif;
+  font-size: 0.95rem;
+}
+
+.categoria-tab::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: var(--secondary);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.4s ease, height 0.4s ease;
+  z-index: -1;
+}
+
+.categoria-tab:hover::before,
+.categoria-tab.active::before {
+  width: 300%;
+  height: 300%;
+}
+
+.categoria-tab:hover,
+.categoria-tab.active {
+  color: var(--white);
+  border-color: var(--secondary);
+}
+
+.loading {
+  text-align: center;
+  padding: 3rem;
+  color: var(--dark);
+  opacity: 0.7;
+  font-size: 1.1rem;
+  grid-column: 1 / -1;
+}
+
+.no-productos {
+  text-align: center;
+  padding: 3rem;
+  color: var(--dark);
+  opacity: 0.7;
+  font-size: 1.1rem;
+  grid-column: 1 / -1;
+}
+
+.producto-precio {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-top: 0.5rem;
+}
+
+.admin-link {
+  color: var(--accent) !important;
+  font-weight: 600;
+}
+
+.admin-link:hover {
+  color: var(--primary) !important;
+}
+
+@media (max-width: 768px) {
+  .categoria-tabs {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .categoria-tab {
+    width: 100%;
+  }
+}
