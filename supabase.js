@@ -1,5 +1,7 @@
 // Funciones de API para Supabase
 
+console.log('✅ supabase.js cargado');
+
 // Obtener todas las categorías
 async function getCategorias() {
   try {
@@ -108,7 +110,7 @@ async function registrarVisita() {
 // Login de admin - VERSIÓN MEJORADA
 async function loginAdmin(username, password) {
   try {
-    console.log('Buscando usuario en base de datos:', username);
+    console.log('🔍 Buscando usuario en base de datos:', username);
     
     const { data, error } = await supabase
       .from('usuarios_admin')
@@ -117,30 +119,32 @@ async function loginAdmin(username, password) {
       .maybeSingle();
     
     if (error) {
-      console.error('Error al buscar usuario:', error);
-      return { success: false, message: 'Error al conectar con la base de datos' };
+      console.error('❌ Error al buscar usuario:', error);
+      return { success: false, message: 'Error al conectar con la base de datos: ' + error.message };
     }
     
     if (!data) {
-      console.log('Usuario no encontrado');
+      console.log('❌ Usuario no encontrado');
       return { success: false, message: 'Usuario no encontrado' };
     }
     
-    console.log('Usuario encontrado, verificando contraseña...');
+    console.log('✅ Usuario encontrado, verificando contraseña...');
+    console.log('🔑 Contraseña en BD:', data.password_hash);
+    console.log('🔑 Contraseña ingresada:', password);
     
     // Verificar contraseña (comparación directa por ahora)
     if (data.password_hash === password) {
-      console.log('Contraseña correcta');
+      console.log('✅ Contraseña correcta');
       // No devolver el password en la respuesta
       const { password_hash, ...userSinPassword } = data;
       return { success: true, user: userSinPassword };
     } else {
-      console.log('Contraseña incorrecta');
+      console.log('❌ Contraseña incorrecta');
       return { success: false, message: 'Contraseña incorrecta' };
     }
   } catch (error) {
-    console.error('Error en loginAdmin:', error);
-    return { success: false, message: 'Error inesperado al iniciar sesión' };
+    console.error('❌ Error en loginAdmin:', error);
+    return { success: false, message: 'Error inesperado: ' + error.message };
   }
 }
 
