@@ -5,6 +5,7 @@ let productos = [];
 
 // ===== INICIALIZACIÓN =====
 document.addEventListener('DOMContentLoaded', () => {
+  console.log('DOM cargado, verificando sesión...');
   verificarSesion();
   configurarEventListeners();
 });
@@ -14,11 +15,19 @@ function verificarSesion() {
   const sesion = localStorage.getItem('polen_admin_sesion');
   
   if (sesion) {
-    const datos = JSON.parse(sesion);
-    usuarioActual = datos;
-    mostrarPanel();
-    cargarDashboard();
+    try {
+      const datos = JSON.parse(sesion);
+      usuarioActual = datos;
+      console.log('Sesión encontrada:', datos);
+      mostrarPanel();
+      cargarDashboard();
+    } catch (error) {
+      console.error('Error al parsear sesión:', error);
+      localStorage.removeItem('polen_admin_sesion');
+      mostrarLogin();
+    }
   } else {
+    console.log('No hay sesión activa');
     mostrarLogin();
   }
 }
@@ -38,10 +47,16 @@ function mostrarPanel() {
 // ===== EVENT LISTENERS =====
 function configurarEventListeners() {
   // Login
-  document.getElementById('login-form').addEventListener('submit', handleLogin);
+  const loginForm = document.getElementById('login-form');
+  if (loginForm) {
+    loginForm.addEventListener('submit', handleLogin);
+  }
   
   // Logout
-  document.getElementById('logout-btn').addEventListener('click', handleLogout);
+  const logoutBtn = document.getElementById('logout-btn');
+  if (logoutBtn) {
+    logoutBtn.addEventListener('click', handleLogout);
+  }
   
   // Navegación del sidebar
   document.querySelectorAll('.nav-item').forEach(item => {
@@ -52,43 +67,82 @@ function configurarEventListeners() {
   });
   
   // Botón nuevo producto
-  document.getElementById('btn-nuevo-producto').addEventListener('click', abrirModalNuevoProducto);
+  const btnNuevoProducto = document.getElementById('btn-nuevo-producto');
+  if (btnNuevoProducto) {
+    btnNuevoProducto.addEventListener('click', abrirModalNuevoProducto);
+  }
   
   // Modal
-  document.getElementById('modal-close').addEventListener('click', cerrarModal);
-  document.getElementById('btn-cancelar').addEventListener('click', cerrarModal);
-  document.getElementById('form-producto').addEventListener('submit', handleGuardarProducto);
+  const modalClose = document.getElementById('modal-close');
+  if (modalClose) {
+    modalClose.addEventListener('click', cerrarModal);
+  }
+  
+  const btnCancelar = document.getElementById('btn-cancelar');
+  if (btnCancelar) {
+    btnCancelar.addEventListener('click', cerrarModal);
+  }
+  
+  const formProducto = document.getElementById('form-producto');
+  if (formProducto) {
+    formProducto.addEventListener('submit', handleGuardarProducto);
+  }
   
   // Preview de imagen
-  document.getElementById('producto-imagen').addEventListener('change', previewImagen);
+  const productoImagen = document.getElementById('producto-imagen');
+  if (productoImagen) {
+    productoImagen.addEventListener('change', previewImagen);
+  }
 }
 
 // ===== LOGIN/LOGOUT =====
 async function handleLogin(e) {
   e.preventDefault();
   
-  const username = document.getElementById('login-username').value;
+  const username = document.getElementById('login-username').value.trim();
   const password = document.getElementById('login-password').value;
   const errorDiv = document.getElementById('login-error');
+  const submitBtn = e.target.querySelector('button[type="submit"]');
+  
+  console.log('Intentando login con usuario:', username);
   
   // Ocultar error previo
   errorDiv.style.display = 'none';
   
-  // Intentar login
-  const resultado = await loginAdmin(username, password);
+  // Deshabilitar botón
+  submitBtn.disabled = true;
+  submitBtn.textContent = 'Verificando...';
   
-  if (resultado.success) {
-    // Guardar sesión
-    usuarioActual = resultado.user;
-    localStorage.setItem('polen_admin_sesion', JSON.stringify(resultado.user));
+  try {
+    // Intentar login
+    const resultado = await loginAdmin(username, password);
     
-    // Mostrar panel
-    mostrarPanel();
-    cargarDashboard();
-  } else {
-    // Mostrar error
-    errorDiv.textContent = resultado.message || 'Error al iniciar sesión';
+    console.log('Resultado del login:', resultado);
+    
+    if (resultado.success) {
+      // Guardar sesión
+      usuarioActual = resultado.user;
+      localStorage.setItem('polen_admin_sesion', JSON.stringify(resultado.user));
+      
+      console.log('Login exitoso, mostrando panel');
+      
+      // Mostrar panel
+      mostrarPanel();
+      cargarDashboard();
+    } else {
+      // Mostrar error
+      errorDiv.textContent = resultado.message || 'Error al iniciar sesión';
+      errorDiv.style.display = 'block';
+      console.error('Error de login:', resultado.message);
+    }
+  } catch (error) {
+    console.error('Error en handleLogin:', error);
+    errorDiv.textContent = 'Error al conectar con el servidor. Verifica tu conexión.';
     errorDiv.style.display = 'block';
+  } finally {
+    // Rehabilitar botón
+    submitBtn.disabled = false;
+    submitBtn.textContent = 'Iniciar Sesión';
   }
 }
 
@@ -145,6 +199,8 @@ function cambiarSeccion(section) {
 // ===== DASHBOARD =====
 async function cargarDashboard() {
   try {
+    console.log('Cargando dashboard...');
+    
     // Obtener estadísticas
     const estadisticas = await getEstadisticas();
     const productos = await getTodosLosProductos();
@@ -170,6 +226,8 @@ async function cargarDashboard() {
       .filter(e => new Date(e.fecha) >= hace7Dias)
       .reduce((sum, e) => sum + e.visitas, 0);
     document.getElementById('visitas-semana').textContent = visitasSemana;
+    
+    console.log('Dashboard cargado exitosamente');
     
   } catch (error) {
     console.error('Error al cargar dashboard:', error);
