@@ -1,13 +1,29 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-PJGFK6GF');</script>
+  <!-- End Google Tag Manager -->
+  
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Polen Pastelería</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  
+  <!-- Supabase JS -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body>
+
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PJGFK6GF"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
 
   <!-- Partículas flotantes de fondo -->
   <div class="floating-particles">
@@ -31,6 +47,7 @@
         <li><a href="#productos">Productos</a></li>
         <li><a href="#menu">Menú</a></li>
         <li><a href="#contacto">Contacto</a></li>
+        <li><a href="admin.html" class="admin-link">🔒 Admin</a></li>
       </ul>
       <button class="nav-toggle" id="nav-toggle">
         <span></span>
@@ -67,77 +84,20 @@
     </div>
   </section>
 
-  <!-- Catálogo de productos -->
+  <!-- Catálogo de productos dinámico -->
   <section class="productos" id="productos">
     <div class="container">
       <span class="section-label">Nuestras Creaciones</span>
       <h2 class="section-title">Catálogo de Productos</h2>
       
-      <div class="productos-grid">
-        <div class="producto-card">
-          <div class="producto-image">
-            <img src="chocolate naranja.webp" alt="Chocolate Naranja">
-            <div class="producto-overlay">
-              <button class="btn-secondary">Ver Detalles</button>
-            </div>
-          </div>
-          <div class="producto-info">
-            <h3>Chocolate Naranja</h3>
-            <p>Delicioso bizcocho con ganache de chocolate y naranja</p>
-          </div>
-        </div>
-
-        <div class="producto-card">
-          <div class="producto-image">
-            <img src="chocolate.webp" alt="Chocolate">
-            <div class="producto-overlay">
-              <button class="btn-secondary">Ver Detalles</button>
-            </div>
-          </div>
-          <div class="producto-info">
-            <h3>Chocolate Clásico</h3>
-            <p>Torta clásica de chocolate con relleno de ganache cremoso</p>
-          </div>
-        </div>
-
-        <div class="producto-card">
-          <div class="producto-image">
-            <img src="frambuesa.webp" alt="Frambuesa">
-            <div class="producto-overlay">
-              <button class="btn-secondary">Ver Detalles</button>
-            </div>
-          </div>
-          <div class="producto-info">
-            <h3>Frambuesa</h3>
-            <p>Bizcocho esponjoso con crema de frambuesa fresca</p>
-          </div>
-        </div>
-
-        <div class="producto-card">
-          <div class="producto-image">
-            <img src="pie de limon.webp" alt="Pie de Limón">
-            <div class="producto-overlay">
-              <button class="btn-secondary">Ver Detalles</button>
-            </div>
-          </div>
-          <div class="producto-info">
-            <h3>Pie de Limón</h3>
-            <p>Base crocante con relleno ácido-dulce de limón y merengue</p>
-          </div>
-        </div>
-
-        <div class="producto-card">
-          <div class="producto-image">
-            <img src="mousse de chandel.webp" alt="Mousse de Chandel">
-            <div class="producto-overlay">
-              <button class="btn-secondary">Ver Detalles</button>
-            </div>
-          </div>
-          <div class="producto-info">
-            <h3>Mousse de Chandel</h3>
-            <p>Suave mousse de chocolate blanco con toque de licor</p>
-          </div>
-        </div>
+      <!-- Tabs de categorías -->
+      <div class="categoria-tabs" id="categoria-tabs">
+        <!-- Se cargan dinámicamente -->
+      </div>
+      
+      <div class="productos-grid" id="productos-grid">
+        <!-- Se cargan dinámicamente desde Supabase -->
+        <div class="loading">Cargando productos...</div>
       </div>
     </div>
   </section>
@@ -286,16 +246,16 @@
         <div class="contacto-form">
           <form id="contact-form">
             <div class="form-group">
-              <input type="text" placeholder="Nombre" required>
+              <input type="text" name="nombre" placeholder="Nombre" required>
             </div>
             <div class="form-group">
-              <input type="email" placeholder="Email" required>
+              <input type="email" name="email" placeholder="Email" required>
             </div>
             <div class="form-group">
-              <input type="tel" placeholder="Teléfono" required>
+              <input type="tel" name="telefono" placeholder="Teléfono" required>
             </div>
             <div class="form-group">
-              <textarea placeholder="Mensaje" rows="4" required></textarea>
+              <textarea name="mensaje" placeholder="Mensaje" rows="4" required></textarea>
             </div>
             <button type="submit" class="btn-primary">Enviar Mensaje</button>
           </form>
@@ -323,6 +283,9 @@
     </div>
   </footer>
 
+  <!-- Scripts -->
+  <script src="config.js"></script>
+  <script src="api/supabase.js"></script>
   <script src="script.js"></script>
 
 </body>
