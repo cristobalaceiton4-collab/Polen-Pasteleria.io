@@ -212,6 +212,7 @@ body {
   flex-direction: column;
   align-items: center;
   gap: 1.5rem;
+  margin-top: 80px;
 }
 
 .hero-logo-container {
@@ -221,7 +222,7 @@ body {
 
 @keyframes floatLogo {
   0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-20px); }
+  50% { transform: translateY(-15px); }
 }
 
 .hero-logo {
