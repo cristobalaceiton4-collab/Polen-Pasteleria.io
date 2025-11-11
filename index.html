@@ -14,9 +14,6 @@
   <title>Polen Pastelería</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
-  
-  <!-- Supabase JS -->
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body>
 
@@ -47,7 +44,6 @@
         <li><a href="#productos">Productos</a></li>
         <li><a href="#menu">Menú</a></li>
         <li><a href="#contacto">Contacto</a></li>
-        <li><a href="admin.html" class="admin-link">🔒 Admin</a></li>
       </ul>
       <button class="nav-toggle" id="nav-toggle">
         <span></span>
@@ -84,20 +80,96 @@
     </div>
   </section>
 
-  <!-- Catálogo de productos dinámico -->
+  <!-- Catálogo de productos -->
   <section class="productos" id="productos">
     <div class="container">
       <span class="section-label">Nuestras Creaciones</span>
       <h2 class="section-title">Catálogo de Productos</h2>
       
-      <!-- Tabs de categorías -->
-      <div class="categoria-tabs" id="categoria-tabs">
-        <!-- Se cargan dinámicamente -->
-      </div>
-      
-      <div class="productos-grid" id="productos-grid">
-        <!-- Se cargan dinámicamente desde Supabase -->
-        <div class="loading">Cargando productos...</div>
+      <div class="productos-grid">
+        <!-- Tortas -->
+        <div class="producto-card">
+          <div class="producto-image">
+            <img src="pie de limon.webp" alt="Tortas">
+            <div class="producto-overlay">
+              <a href="tortas.html" class="btn-secondary">Ver más</a>
+            </div>
+          </div>
+          <div class="producto-info">
+            <h3> Tortas</h3>
+            <p>Deliciosas tortas para toda ocasión</p>
+          </div>
+        </div>
+
+        <!-- Salados -->
+        <div class="producto-card">
+          <div class="producto-image">
+            <img src="https://images.unsplash.com/photo-1528735602780-2552fd46c7af?w=800" alt="Salados">
+            <div class="producto-overlay">
+              <a href="salados.html" class="btn-secondary">Ver más</a>
+            </div>
+          </div>
+          <div class="producto-info">
+            <h3> Salados</h3>
+            <p>sandwiches y más delicias saladas</p>
+          </div>
+        </div>
+
+        <!-- Bollería -->
+        <div class="producto-card">
+          <div class="producto-image">
+            <img src="rollos de canela.jpg" alt="Bollería">
+            <div class="producto-overlay">
+              <a href="bolleria.html" class="btn-secondary">Ver más</a>
+            </div>
+          </div>
+          <div class="producto-info">
+            <h3> Bollería</h3>
+            <p>Alfajores, galletas y mucho más</p>
+          </div>
+        </div>
+
+        <!-- Kuchen -->
+        <div class="producto-card">
+          <div class="producto-image">
+            <img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=800" alt="Kuchen">
+            <div class="producto-overlay">
+              <a href="kuchen.html" class="btn-secondary">Ver más</a>
+            </div>
+          </div>
+          <div class="producto-info">
+            <h3> Kuchen</h3>
+            <p>Tradicionales kuchens</p>
+          </div>
+        </div>
+
+        <!-- Cheesecakes -->
+        <div class="producto-card">
+          <div class="producto-image">
+            <img src="https://images.unsplash.com/photo-1533134242443-d4fd215305ad?w=800" alt="Cheesecakes">
+            <div class="producto-overlay">
+              <a href="cheesecakes.html" class="btn-secondary">Ver más</a>
+            </div>
+          </div>
+          <div class="producto-info">
+            <h3> Cheesecakes</h3>
+            <p>Cremosos y exquisitos cheesecakes</p>
+          </div>
+        </div>
+
+        <!-- Panes de Pascua -->
+        <div class="producto-card">
+          <div class="producto-image">
+            <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=800" alt="Panes de Pascua">
+            <div class="producto-overlay">
+              <a href="panes-pascua.html" class="btn-secondary">Ver más</a>
+            </div>
+          </div>
+          <div class="producto-info">
+            <h3> Panes de Pascua</h3>
+            <p>Tradicionales para las fiestas</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -283,9 +355,6 @@
     </div>
   </footer>
 
-  <!-- Scripts -->
-  <script src="config.js"></script>
-  <script src="api/supabase.js"></script>
   <script src="script.js"></script>
 
 </body>

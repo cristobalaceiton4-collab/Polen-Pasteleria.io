@@ -59,6 +59,11 @@ const observer = new IntersectionObserver((entries) => {
   });
 }, observerOptions);
 
+// Observar tarjetas de productos
+document.querySelectorAll('.producto-card').forEach(card => {
+  observer.observe(card);
+});
+
 // Smooth scroll para navegación
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function (e) {
@@ -75,138 +80,23 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 });
 
-// ===== CARGAR DATOS DINÁMICOS DESDE SUPABASE =====
+// Formulario de contacto
+const contactForm = document.getElementById('contact-form');
 
-let categoriaActual = 'todas';
-
-// Cargar categorías y productos al cargar la página
-document.addEventListener('DOMContentLoaded', async () => {
-  // Registrar visita
-  await registrarVisita();
+contactForm.addEventListener('submit', (e) => {
+  e.preventDefault();
   
-  // Cargar categorías
-  await cargarCategorias();
+  const formData = new FormData(contactForm);
+  const nombre = formData.get('nombre');
+  const email = formData.get('email');
+  const telefono = formData.get('telefono');
+  const mensaje = formData.get('mensaje');
   
-  // Cargar todos los productos
-  await cargarProductos();
+  // Aquí puedes agregar lo que quieras hacer con los datos
+  // Por ejemplo, enviar por email o mostrar un mensaje
   
-  // Configurar formulario de contacto
-  configurarFormularioContacto();
+  alert(`¡Gracias ${nombre}! Hemos recibido tu mensaje. Te contactaremos pronto al ${telefono}.`);
+  
+  // Limpiar formulario
+  contactForm.reset();
 });
-
-// Cargar categorías como tabs
-async function cargarCategorias() {
-  const categoriasContainer = document.getElementById('categoria-tabs');
-  const categorias = await getCategorias();
-  
-  if (!categorias || categorias.length === 0) {
-    categoriasContainer.innerHTML = '<p>No hay categorías disponibles</p>';
-    return;
-  }
-  
-  let html = '<button class="categoria-tab active" data-categoria="todas">Todas</button>';
-  
-  categorias.forEach(cat => {
-    html += `<button class="categoria-tab" data-categoria="${cat.id}">${cat.nombre}</button>`;
-  });
-  
-  categoriasContainer.innerHTML = html;
-  
-  // Event listeners para las tabs de categorías
-  document.querySelectorAll('.categoria-tab').forEach(tab => {
-    tab.addEventListener('click', async (e) => {
-      // Remover active de todos
-      document.querySelectorAll('.categoria-tab').forEach(t => t.classList.remove('active'));
-      
-      // Agregar active al clickeado
-      e.target.classList.add('active');
-      
-      // Filtrar productos
-      const categoriaId = e.target.dataset.categoria;
-      categoriaActual = categoriaId;
-      await cargarProductos();
-    });
-  });
-}
-
-// Cargar productos
-async function cargarProductos() {
-  const productosGrid = document.getElementById('productos-grid');
-  productosGrid.innerHTML = '<div class="loading">Cargando productos...</div>';
-  
-  let productos;
-  
-  if (categoriaActual === 'todas') {
-    productos = await getTodosLosProductos();
-  } else {
-    productos = await getProductosPorCategoria(parseInt(categoriaActual));
-  }
-  
-  if (!productos || productos.length === 0) {
-    productosGrid.innerHTML = '<p class="no-productos">No hay productos disponibles en esta categoría</p>';
-    return;
-  }
-  
-  let html = '';
-  productos.forEach(producto => {
-    html += `
-      <div class="producto-card">
-        <div class="producto-image">
-          <img src="${producto.imagen_url}" alt="${producto.nombre}">
-          <div class="producto-overlay">
-            <button class="btn-secondary">Ver Detalles</button>
-          </div>
-        </div>
-        <div class="producto-info">
-          <h3>${producto.nombre}</h3>
-          <p>${producto.descripcion || 'Delicioso producto artesanal'}</p>
-          ${producto.precio ? `<p class="producto-precio">$${producto.precio.toLocaleString('es-CL')}</p>` : ''}
-        </div>
-      </div>
-    `;
-  });
-  
-  productosGrid.innerHTML = html;
-  
-  // Observar las nuevas tarjetas para animación
-  document.querySelectorAll('.producto-card').forEach(card => {
-    observer.observe(card);
-  });
-}
-
-// Configurar formulario de contacto
-function configurarFormularioContacto() {
-  const contactForm = document.getElementById('contact-form');
-  
-  contactForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    
-    const formData = new FormData(contactForm);
-    const mensaje = {
-      nombre: formData.get('nombre'),
-      email: formData.get('email'),
-      telefono: formData.get('telefono'),
-      mensaje: formData.get('mensaje')
-    };
-    
-    // Deshabilitar botón
-    const submitBtn = contactForm.querySelector('button[type="submit"]');
-    const textoOriginal = submitBtn.textContent;
-    submitBtn.disabled = true;
-    submitBtn.textContent = 'Enviando...';
-    
-    // Insertar en Supabase
-    const resultado = await insertarMensajeContacto(mensaje);
-    
-    if (resultado.success) {
-      alert('¡Gracias por tu mensaje! Te contactaremos pronto.');
-      contactForm.reset();
-    } else {
-      alert('Hubo un error al enviar el mensaje. Por favor intenta nuevamente.');
-    }
-    
-    // Rehabilitar botón
-    submitBtn.disabled = false;
-    submitBtn.textContent = textoOriginal;
-  });
-}
