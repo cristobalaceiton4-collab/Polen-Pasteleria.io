@@ -80,23 +80,3 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 });
 
-// Formulario de contacto
-const contactForm = document.getElementById('contact-form');
-
-contactForm.addEventListener('submit', (e) => {
-  e.preventDefault();
-  
-  const formData = new FormData(contactForm);
-  const nombre = formData.get('nombre');
-  const email = formData.get('email');
-  const telefono = formData.get('telefono');
-  const mensaje = formData.get('mensaje');
-  
-  // Aquí puedes agregar lo que quieras hacer con los datos
-  // Por ejemplo, enviar por email o mostrar un mensaje
-  
-  alert(`¡Gracias ${nombre}! Hemos recibido tu mensaje. Te contactaremos pronto al ${telefono}.`);
-  
-  // Limpiar formulario
-  contactForm.reset();
-});
