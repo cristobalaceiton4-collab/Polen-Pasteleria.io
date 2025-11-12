@@ -174,7 +174,7 @@ body {
 
 /* === HERO === */
 .hero {
-  height: 115vh;
+  height: 100vh;
   position: relative;
   display: flex;
   align-items: center;
@@ -309,7 +309,6 @@ body {
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* Scroll indicator - OCULTO */
 .scroll-indicator {
   display: none;
 }
@@ -449,6 +448,8 @@ section {
   letter-spacing: 1px;
   transition: all 0.3s ease;
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+  text-decoration: none;
+  display: inline-block;
 }
 
 .btn-secondary:hover {
@@ -543,7 +544,7 @@ section {
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* Sabores */
+/* === SABORES === */
 .sabores-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -600,7 +601,7 @@ section {
   z-index: 1;
 }
 
-/* Precios */
+/* === PRECIOS === */
 .precios-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -690,138 +691,95 @@ section {
 /* === CONTACTO === */
 .contacto {
   background: linear-gradient(180deg, var(--light), var(--white));
+  padding: 8rem 0;
 }
 
-.contacto-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
-  gap: 4rem;
-  align-items: start;
-}
-
-.contacto-info h2 {
-  font-size: clamp(2.5rem, 4vw, 4rem);
-  margin-bottom: 1.5rem;
-  color: var(--primary);
-}
-
-.contacto-desc {
-  font-size: 1.2rem;
-  color: var(--dark);
-  opacity: 0.7;
-  margin-bottom: 3rem;
-  line-height: 1.8;
+.info-comprar-card {
+  background: var(--white);
+  padding: 4rem 3rem;
+  border-radius: 30px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+  max-width: 900px;
+  margin: 0 auto;
 }
 
 .info-blocks {
-  display: flex;
-  flex-direction: column;
-  gap: 2.5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+  padding-bottom: 3rem;
+  border-bottom: 2px solid var(--light);
 }
 
 .info-block {
   display: flex;
-  gap: 1.5rem;
+  gap: 1rem;
   align-items: flex-start;
-  padding: 1.5rem;
-  background: var(--white);
-  border-radius: 15px;
-  transition: all 0.3s ease;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
-}
-
-.info-block:hover {
-  transform: translateX(10px);
-  box-shadow: 0 10px 30px rgba(74, 111, 165, 0.15);
 }
 
 .info-icon {
-  font-size: 2.5rem;
+  font-size: 2rem;
   flex-shrink: 0;
 }
 
 .info-block h4 {
-  font-size: 1.3rem;
-  margin-bottom: 0.8rem;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
   color: var(--primary);
 }
 
 .info-block p {
   color: var(--dark);
-  opacity: 0.7;
+  opacity: 0.8;
+  line-height: 1.6;
+}
+
+.como-comprar-section {
+  text-align: center;
+}
+
+.como-comprar-section h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  color: var(--primary);
+  margin-bottom: 1.5rem;
+}
+
+.como-comprar-section p {
+  font-size: 1.1rem;
   line-height: 1.8;
-}
-
-/* Formulario */
-.contacto-form {
-  background: var(--white);
-  padding: 3.5rem;
-  border-radius: 20px;
-  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.08);
-  position: relative;
-  overflow: hidden;
-}
-
-.contacto-form::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 5px;
-  background: linear-gradient(90deg, var(--secondary), var(--accent));
-}
-
-.form-group {
+  color: var(--dark);
+  opacity: 0.8;
   margin-bottom: 2rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.form-group input,
-.form-group textarea {
-  width: 100%;
-  padding: 1.2rem 1.5rem;
-  border: 2px solid var(--light);
-  border-radius: 12px;
-  font-family: 'Lato', sans-serif;
-  font-size: 1rem;
-  transition: all 0.3s ease;
-  background: var(--light);
-}
-
-.form-group input:focus,
-.form-group textarea:focus {
-  outline: none;
-  border-color: var(--secondary);
-  background: var(--white);
-  box-shadow: 0 5px 20px rgba(126, 200, 227, 0.1);
-}
-
-.form-group textarea {
-  resize: vertical;
-  min-height: 150px;
-}
-
-.btn-primary {
-  display: inline-block;
-  padding: 1.2rem 3.5rem;
-  background: var(--primary);
+.btn-instagram {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 1.2rem 2.5rem;
+  background: linear-gradient(135deg, #833AB4, #FD1D1D, #F77737);
   color: var(--white);
   text-decoration: none;
   font-weight: 600;
-  letter-spacing: 2px;
-  border-radius: 50px;
-  border: none;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 10px 30px rgba(74, 111, 165, 0.3);
-  font-family: 'Lato', sans-serif;
   font-size: 1rem;
+  letter-spacing: 0.5px;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 30px rgba(131, 58, 180, 0.4);
 }
 
-.btn-primary:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 15px 40px rgba(74, 111, 165, 0.4);
-  background: var(--secondary);
+.btn-instagram:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 15px 40px rgba(131, 58, 180, 0.6);
+}
+
+.btn-instagram span {
+  font-size: 1.3rem;
 }
 
 /* === FOOTER === */
@@ -902,8 +860,8 @@ section {
   }
 
   .hero-logo {
-    width: 150px;
-    height: 150px;
+    width: 180px;
+    height: 180px;
   }
 
   .hero-title {
@@ -961,27 +919,9 @@ section {
     padding-top: 4rem;
   }
 
-  .hero-content {
-    gap: 1rem;
-  }
-
-  .hero-logo {
-    width: 180px;
-    height: 180px;
-  }
-
-  .logo-glow {
-    width: 220px;
-    height: 220px;
-  }
-
   .productos-grid,
   .sabores-grid,
   .precios-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .contacto-grid {
     grid-template-columns: 1fr;
   }
 
@@ -994,364 +934,7 @@ section {
     gap: 2rem;
     text-align: center;
   }
-}
 
-/* === ESTILOS ADICIONALES PARA CATÁLOGO DINÁMICO === */
-
-.categoria-tabs {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  margin: 2rem 0 3rem 0;
-  flex-wrap: wrap;
-}
-
-.categoria-tab {
-  padding: 0.875rem 2rem;
-  background: transparent;
-  border: 2px solid var(--secondary);
-  color: var(--dark);
-  font-weight: 600;
-  letter-spacing: 0.5px;
-  cursor: pointer;
-  border-radius: 50px;
-  transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
-  font-family: 'Lato', sans-serif;
-  font-size: 0.95rem;
-}
-
-.categoria-tab::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 0;
-  height: 0;
-  background: var(--secondary);
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-  transition: width 0.4s ease, height 0.4s ease;
-  z-index: -1;
-}
-
-.categoria-tab:hover::before,
-.categoria-tab.active::before {
-  width: 300%;
-  height: 300%;
-}
-
-.categoria-tab:hover,
-.categoria-tab.active {
-  color: var(--white);
-  border-color: var(--secondary);
-}
-
-.loading {
-  text-align: center;
-  padding: 3rem;
-  color: var(--dark);
-  opacity: 0.7;
-  font-size: 1.1rem;
-  grid-column: 1 / -1;
-}
-
-.no-productos {
-  text-align: center;
-  padding: 3rem;
-  color: var(--dark);
-  opacity: 0.7;
-  font-size: 1.1rem;
-  grid-column: 1 / -1;
-}
-
-.producto-precio {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--primary);
-  margin-top: 0.5rem;
-}
-
-.admin-link {
-  color: var(--accent) !important;
-  font-weight: 600;
-}
-
-.admin-link:hover {
-  color: var(--primary) !important;
-}
-
-@media (max-width: 768px) {
-  .categoria-tabs {
-    flex-direction: column;
-    align-items: stretch;
-  }
-  
-  .categoria-tab {
-    width: 100%;
-  }
-}
-
-/* === CÓMO COMPRAR === */
-.como-comprar {
-  background: linear-gradient(135deg, var(--primary), var(--secondary));
-  text-align: center;
-  padding: 6rem 0;
-}
-
-.como-comprar-card {
-  max-width: 800px;
-  margin: 0 auto;
-  background: var(--white);
-  padding: 4rem 3rem;
-  border-radius: 30px;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
-}
-
-.como-comprar-card h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(2.5rem, 5vw, 3.5rem);
-  color: var(--primary);
-  margin-bottom: 1.5rem;
-}
-
-.como-comprar-desc {
-  font-size: 1.2rem;
-  line-height: 1.8;
-  color: var(--dark);
-  opacity: 0.8;
-  margin-bottom: 2.5rem;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.btn-instagram {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.8rem;
-  padding: 1.2rem 3rem;
-  background: linear-gradient(135deg, #833AB4, #FD1D1D, #F77737);
-  color: var(--white);
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 1.1rem;
-  letter-spacing: 0.5px;
-  border-radius: 50px;
-  transition: all 0.3s ease;
-  box-shadow: 0 10px 30px rgba(131, 58, 180, 0.4);
-}
-
-.btn-instagram:hover {
-  transform: translateY(-5px) scale(1.05);
-  box-shadow: 0 15px 40px rgba(131, 58, 180, 0.6);
-}
-
-.btn-instagram span {
-  font-size: 1.5rem;
-}
-
-@media (max-width: 768px) {
-  .como-comprar-card {
-    padding: 3rem 2rem;
-  }
-  
-  .btn-instagram {
-    padding: 1rem 2rem;
-    font-size: 1rem;
-  }
-}
-
-/* === TARJETA DE INFO Y CÓMO COMPRAR === */
-.info-comprar-card {
-  background: var(--white);
-  padding: 4rem 3rem;
-  border-radius: 30px;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
-  max-width: 900px;
-  margin: 0 auto;
-}
-
-.info-blocks {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
-  margin-bottom: 3rem;
-  padding-bottom: 3rem;
-  border-bottom: 2px solid var(--light);
-}
-
-.info-block {
-  display: flex;
-  gap: 1rem;
-  align-items: flex-start;
-}
-
-.info-icon {
-  font-size: 2rem;
-  flex-shrink: 0;
-}
-
-.info-block h4 {
-  font-size: 1.2rem;
-  margin-bottom: 0.5rem;
-  color: var(--primary);
-}
-
-.info-block p {
-  color: var(--dark);
-  opacity: 0.8;
-  line-height: 1.6;
-}
-
-.como-comprar-section {
-  text-align: center;
-}
-
-.como-comprar-section h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: 2.5rem;
-  color: var(--primary);
-  margin-bottom: 1.5rem;
-}
-
-.como-comprar-section p {
-  font-size: 1.1rem;
-  line-height: 1.8;
-  color: var(--dark);
-  opacity: 0.8;
-  margin-bottom: 2rem;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.btn-instagram {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.8rem;
-  padding: 1.2rem 2.5rem;
-  background: linear-gradient(135deg, #833AB4, #FD1D1D, #F77737);
-  color: var(--white);
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 1rem;
-  letter-spacing: 0.5px;
-  border-radius: 50px;
-  transition: all 0.3s ease;
-  box-shadow: 0 10px 30px rgba(131, 58, 180, 0.4);
-}
-
-.btn-instagram:hover {
-  transform: translateY(-5px) scale(1.05);
-  box-shadow: 0 15px 40px rgba(131, 58, 180, 0.6);
-}
-
-.btn-instagram span {
-  font-size: 1.3rem;
-}
-
-@media (max-width: 768px) {
-  .info-blocks {
-    grid-template-columns: 1fr;
-  }
-  
-  .info-comprar-card {
-    padding: 2.5rem 1.5rem;
-  }
-}
-
-/* === TARJETA DE INFO Y CÓMO COMPRAR === */
-.info-comprar-card {
-  background: var(--white);
-  padding: 4rem 3rem;
-  border-radius: 30px;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
-  max-width: 900px;
-  margin: 0 auto;
-}
-
-.info-blocks {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
-  margin-bottom: 3rem;
-  padding-bottom: 3rem;
-  border-bottom: 2px solid var(--light);
-}
-
-.info-block {
-  display: flex;
-  gap: 1rem;
-  align-items: flex-start;
-}
-
-.info-icon {
-  font-size: 2rem;
-  flex-shrink: 0;
-}
-
-.info-block h4 {
-  font-size: 1.2rem;
-  margin-bottom: 0.5rem;
-  color: var(--primary);
-}
-
-.info-block p {
-  color: var(--dark);
-  opacity: 0.8;
-  line-height: 1.6;
-}
-
-.como-comprar-section {
-  text-align: center;
-}
-
-.como-comprar-section h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: 2.5rem;
-  color: var(--primary);
-  margin-bottom: 1.5rem;
-}
-
-.como-comprar-section p {
-  font-size: 1.1rem;
-  line-height: 1.8;
-  color: var(--dark);
-  opacity: 0.8;
-  margin-bottom: 2rem;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.btn-instagram {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.8rem;
-  padding: 1.2rem 2.5rem;
-  background: linear-gradient(135deg, #833AB4, #FD1D1D, #F77737);
-  color: var(--white);
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 1rem;
-  letter-spacing: 0.5px;
-  border-radius: 50px;
-  transition: all 0.3s ease;
-  box-shadow: 0 10px 30px rgba(131, 58, 180, 0.4);
-}
-
-.btn-instagram:hover {
-  transform: translateY(-5px) scale(1.05);
-  box-shadow: 0 15px 40px rgba(131, 58, 180, 0.6);
-}
-
-.btn-instagram span {
-  font-size: 1.3rem;
-}
-
-@media (max-width: 768px) {
   .info-blocks {
     grid-template-columns: 1fr;
   }
