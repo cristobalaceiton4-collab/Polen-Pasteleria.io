@@ -1092,3 +1092,73 @@ section {
     width: 100%;
   }
 }
+
+/* === CÓMO COMPRAR === */
+.como-comprar {
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  text-align: center;
+  padding: 6rem 0;
+}
+
+.como-comprar-card {
+  max-width: 800px;
+  margin: 0 auto;
+  background: var(--white);
+  padding: 4rem 3rem;
+  border-radius: 30px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+}
+
+.como-comprar-card h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  color: var(--primary);
+  margin-bottom: 1.5rem;
+}
+
+.como-comprar-desc {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: var(--dark);
+  opacity: 0.8;
+  margin-bottom: 2.5rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.btn-instagram {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 1.2rem 3rem;
+  background: linear-gradient(135deg, #833AB4, #FD1D1D, #F77737);
+  color: var(--white);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+  letter-spacing: 0.5px;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 30px rgba(131, 58, 180, 0.4);
+}
+
+.btn-instagram:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 15px 40px rgba(131, 58, 180, 0.6);
+}
+
+.btn-instagram span {
+  font-size: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .como-comprar-card {
+    padding: 3rem 2rem;
+  }
+  
+  .btn-instagram {
+    padding: 1rem 2rem;
+    font-size: 1rem;
+  }
+}
