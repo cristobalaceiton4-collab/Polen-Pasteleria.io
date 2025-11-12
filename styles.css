@@ -1261,3 +1261,102 @@ section {
     padding: 2.5rem 1.5rem;
   }
 }
+
+/* === TARJETA DE INFO Y CÓMO COMPRAR === */
+.info-comprar-card {
+  background: var(--white);
+  padding: 4rem 3rem;
+  border-radius: 30px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.info-blocks {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+  padding-bottom: 3rem;
+  border-bottom: 2px solid var(--light);
+}
+
+.info-block {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.info-icon {
+  font-size: 2rem;
+  flex-shrink: 0;
+}
+
+.info-block h4 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: var(--primary);
+}
+
+.info-block p {
+  color: var(--dark);
+  opacity: 0.8;
+  line-height: 1.6;
+}
+
+.como-comprar-section {
+  text-align: center;
+}
+
+.como-comprar-section h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  color: var(--primary);
+  margin-bottom: 1.5rem;
+}
+
+.como-comprar-section p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--dark);
+  opacity: 0.8;
+  margin-bottom: 2rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.btn-instagram {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 1.2rem 2.5rem;
+  background: linear-gradient(135deg, #833AB4, #FD1D1D, #F77737);
+  color: var(--white);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 30px rgba(131, 58, 180, 0.4);
+}
+
+.btn-instagram:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 15px 40px rgba(131, 58, 180, 0.6);
+}
+
+.btn-instagram span {
+  font-size: 1.3rem;
+}
+
+@media (max-width: 768px) {
+  .info-blocks {
+    grid-template-columns: 1fr;
+  }
+  
+  .info-comprar-card {
+    padding: 2.5rem 1.5rem;
+  }
+}
