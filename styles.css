@@ -963,3 +963,22 @@ section {
     padding: 2.5rem 1.5rem;
   }
 }
+
+/* Esto NO cambia el tamaño del favicon (eso es imposible)
+   pero mejora el contraste en la pestaña del navegador */
+
+/* Agrega esto al final de styles.css */
+
+/* Asegurar que las imágenes del favicon tengan mejor renderizado */
+link[rel="icon"],
+link[rel="apple-touch-icon"] {
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+}
+
+/* Esto es solo para navegadores webkit (Chrome/Safari) */
+@supports (-webkit-appearance: none) {
+  link[rel="icon"] {
+    image-rendering: -webkit-optimize-contrast;
+  }
+}
